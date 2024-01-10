@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/novavi/Desktop/ARYA/todo delete/env/bin/python3" "$0" "$@"
-' '''
+#!/home/synnefo/Desktop/ARYA/TODO/env/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

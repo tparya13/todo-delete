@@ -4,6 +4,8 @@ from django.db import models
 class Task(models.Model):
     task=models.CharField(max_length=25)
     priority=models.ImageField()
+    date=models.DateField()
+    image=models.ImageField(upload_to='todoimage')
 
     def __str__(self):
         return self.task

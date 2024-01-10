@@ -6,7 +6,10 @@ def Home(req):
     if req.method=="POST":
         task=req.POST["task"]
         priority=req.POST["priority"]
-        todo=Task(task=task,priority=priority)
+        img=req.FILES['image']
+        print(img)
+        Date=req.POST.get('date','')
+        todo=Task(task=task,priority=priority,date=Date,image=img)
         todo.save()
     return render(req,'index.html',{"tasks":tasks})
 
