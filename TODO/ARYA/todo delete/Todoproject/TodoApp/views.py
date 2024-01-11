@@ -7,7 +7,6 @@ def Home(req):
         task=req.POST["task"]
         priority=req.POST["priority"]
         img=req.FILES['image']
-        print(img)
         Date=req.POST.get('date','')
         todo=Task(task=task,priority=priority,date=Date,image=img)
         todo.save()
@@ -15,12 +14,12 @@ def Home(req):
 
 def Update(req,id):
     tasks=Task.objects.get(id=id) 
-    if req.method=="POST":
-        task=req.POST.get('task','')
-        priority=req.POST.get('priority','')
-        Task.objects.filter(id=id).update(task=task,priority=priority)
-        return redirect("home")
-    return render(req,'update.html',{"task":tasks})       
+    # if req.method=="POST":
+    #     task=req.POST.get('task','')
+    #     priority=req.POST.get('priority','')
+    #     Task.objects.filter(id=id).update(task=task,priority=priority)
+    #     return redirect("home")
+    return render(req,'formUpdate.html',{"task":tasks,'f':f})       
 
 def Delete(req,id):
     tasks=Task.objects.get(id=id) 
